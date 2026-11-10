@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>دعوة لمشروع مباراة اليوم
-</title>
+<title>دعوة معرض مشاريع إدارة البيانات</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;800&display=swap">
 <style>
 :root{--ink:#231d16;--mute:#6b5f4d;--tiff:#7de2d4;--tiff-d:#3fae9f;--green:#1b8a48;--green-d:#0f5f33;--red:#d93a32;--gold:#e9a92a;--paper:#e6dcc4;--paper2:#fffaf0;
@@ -98,11 +97,12 @@ input{font:inherit;font-size:19px;text-align:center;background:var(--paper2);bor
 <g font-family="Tajawal,sans-serif" font-weight="800" fill="#fbf4e2" fill-opacity=".28" font-size="26"><text x="40" y="1250">FORECAST ▸</text><text x="400" y="1180" text-anchor="middle" fill-opacity=".25">GATES · LIVE</text></g>
 </svg></div>
 <main id="app">
- <div class="brand">MATCH NIGHT ·  مباراة اليوم</div>
+ <div class="brand">معرض مشاريع إدارة البيانات</div>
  <section class="paper">
-  <div class="tag">لوحة تحكم الملعب · دعوة خاصة</div>
-  <h1>أنتِ مدعوّة<br><em>لمشروع اليوم .</em></h1>
-  <p class="sub">كل تفاصيل المعرض في لوحة واحدة. شوفيها وأكدي حضورك.</p>
+  <div class="tag">دعوة خاصة</div>
+  <h1 style="font-size:clamp(28px,8vw,38px)">أنتِ مدعوّة<br><em>لمعرض مشاريع<br>إدارة البيانات</em></h1>
+  <p class="sub" style="font-weight:800;color:var(--ink)">بالتعاون مع قسم علم البيانات</p>
+  <p class="sub" style="font-size:16px">نعرض مشروعنا «ماتش الليلة» عن إدارة حشود الملاعب بالبيانات. تفاصيل المعرض في اللوحة تحت، وأكدي حضورك.</p>
  </section>
 
  <section class="kpis" aria-label="تفاصيل الدعوة">
@@ -130,8 +130,8 @@ input{font:inherit;font-size:19px;text-align:center;background:var(--paper2);bor
  <section class="paper" id="rsvp">
   <div class="ring" id="ring" style="--p:0"><div id="rp">٠٪</div></div>
   <div class="sub" style="font-size:16px">تأكيد الحضور</div>
-  <input id="nm" maxlength="18" autocomplete="off" placeholder="فضلّا اكتبي اسمك (اختياري)" aria-label="الاسم">
-  <div><button class="btn" id="yes">أكدي لنا حضوري ✅</button></div>
+  <input id="nm" maxlength="18" autocomplete="off" placeholder="اكتبي اسمك (اختياري)" aria-label="الاسم">
+  <div><button class="btn" id="yes">أكدي حضوري ✅</button></div>
  </section>
 
  <section id="done" hidden style="display:grid;gap:12px">
@@ -144,7 +144,7 @@ input{font:inherit;font-size:19px;text-align:center;background:var(--paper2);bor
  </section>
 </main>
 <script>
-const MAP_QUERY = 'بهو قاعة الجوهرة جامعة أم القرى';
+const MAP_QUERY = 'قاعة الجوهرة جامعة أم القرى';
 const $ = id => document.getElementById(id);
 const AR = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 const beep = (f, d) => { try { const a = beep.a = beep.a || new (window.AudioContext || window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain(); o.frequency.value = f; g.gain.value = .05; o.connect(g); g.connect(a.destination); o.start(); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d); o.stop(a.currentTime + d); } catch (e) {} };
@@ -164,8 +164,8 @@ function confirmIt() {
 }
 $('yes').onclick = confirmIt; $('nm').addEventListener('keydown', e => { if (e.key === 'Enter') confirmIt(); });
 $('map').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(MAP_QUERY);
-$('cal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('مباراة · معرض دفعة 46') + '&dates=20261111T072000Z/20261111T094000Z&location=' + encodeURIComponent('قاعة الجوهرة - جامعة أم القرى') + '&details=' + encodeURIComponent('إدارة حشود الملاعب بالبيانات.');
-$('sh').onclick = async () => { const text = 'أنا مدعوّة لـ «مباراة اليوم» 🎟 الأربعاء ١١ نوفمبر · ١٠:٢٠–١٢:٤٠ · قاعة الجوهرة', url = location.href;
-  try { if (navigator.share) { await navigator.share({ title: 'مباراة اليوم ', text, url }); return; } } catch (e) { return; }
+$('cal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('معرض مشاريع إدارة البيانات · قسم علم البيانات') + '&dates=20261111T072000Z/20261111T094000Z&location=' + encodeURIComponent('قاعة الجوهرة - جامعة أم القرى') + '&details=' + encodeURIComponent('معرض مشاريع إدارة البيانات بالتعاون مع قسم علم البيانات. مشروعنا: ماتش الليلة.');
+$('sh').onclick = async () => { const text = 'أنا مدعوّة لمعرض مشاريع إدارة البيانات 🎟 الأربعاء ١١ نوفمبر · ١٠:٢٠–١٢:٤٠ · قاعة الجوهرة', url = location.href;
+  try { if (navigator.share) { await navigator.share({ title: 'معرض مشاريع إدارة البيانات', text, url }); return; } } catch (e) { return; }
   try { await navigator.clipboard.writeText(text + ' ' + url); $('sh').textContent = 'اننسخ ✓'; } catch (e) { $('sh').textContent = 'انسخي الرابط من المتصفح'; } };
 </script></body></html>
